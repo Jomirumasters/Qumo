@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>QUMO</title>
+        <!-- Favicon -->
+         <link rel="icon" href="images/back.svg" type="image/svg+xml">
+
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">      
+<!--
+
+TemplateMo 590 topic listing
+
+https://templatemo.com/tm-590-topic-listing
+
+-->
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-back"></i>
+                        <span>QUMO</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Features</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Objective</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                  
+                                    <li><a class="dropdown-item" href="topics-detail.html">About-us</a></li>
+                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Quizzes. Learn. Motivation</h1>
+
+                            <h6 class="text-center">An interactvice Study Companion
+                                for Boosting Studtents' Academic Motivation</h6>
+
+                                <form action="https://www.google.com/search" method="get" target="_blank" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search" onsubmit="clearInputAfterDelay()">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bi-search" id="basic-addon1"></span>
+                                
+                                        <label for="search-input" class="visually-hidden">Search</label>
+                                        <input name="q" type="search" class="form-control" id="search-input" placeholder="E-tech, Prototype, Youtube, YES ..." autocomplete="on" aria-describedby="basic-addon1" oninput="showSuggestions(this.value)">
+                                        
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                    <!-- Container for the autocomplete suggestions -->
+                                    <div id="suggestions-container" class="autocomplete-suggestions"></div>
+                                </form>
+                                
+                                <script>
+                                // Sample suggestions array (this can be replaced with dynamic data)
+                                const suggestions = ["E-tech", "Prototype", "YouTube", "YES", "Electronics", "Tech News", "Programming", "Prototyping"];
+                                
+                                function showSuggestions(input) {
+                                    const suggestionsContainer = document.getElementById("suggestions-container");
+                                    suggestionsContainer.innerHTML = ""; // Clear previous suggestions
+                                
+                                    if (input.length === 0) {
+                                        return; // No input, no suggestions
+                                    }
+                                
+                                    // Filter suggestions based on input
+                                    const filteredSuggestions = suggestions.filter(suggestion => 
+                                        suggestion.toLowerCase().includes(input.toLowerCase())
+                                    );
+                                
+                                    // Display suggestions
+                                    filteredSuggestions.forEach(suggestion => {
+                                        const suggestionDiv = document.createElement("div");
+                                        suggestionDiv.classList.add("suggestion-item");
+                                        suggestionDiv.textContent = suggestion;
+                                        suggestionDiv.onclick = () => selectSuggestion(suggestion); // Set suggestion on click
+                                        suggestionsContainer.appendChild(suggestionDiv);
+                                    });
+                                }
+                                
+                                function selectSuggestion(suggestion) {
+                                    document.getElementById("search-input").value = suggestion; // Set the input value
+                                    document.getElementById("suggestions-container").innerHTML = ""; // Clear suggestions
+                                }
+                                
+                                function clearInputAfterDelay() {
+                                    setTimeout(function() {
+                                        document.getElementById("search-input").value = ""; // Clear the input field
+                                    }, 3000);
+                                }
+                                </script>
+                                
+                                <style>
+                                /* Style for suggestions container */
+                                .autocomplete-suggestions {
+                                    position: absolute;
+                                    z-index: 1000;
+                                    background-color: white;
+                                    border: auto solid white;
+                                    width: auto;
+                                    max-height: auto;
+                                    overflow-y: auto;
+                                    border-radius: 10px;
+                                    align-items: center;
+                                }
+                                
+                                .suggestion-item {
+                                    padding: 8px;
+                                    cursor: pointer;
+                                }
+                                
+                                .suggestion-item:hover {
+                                    background-color: #f0f0f0;
+                                }
+                                </style>
+                                
+                                
+                        </div>
+
+                    </div>
+                </div> 
+            </section>
+
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                            <div class="custom-block bg-white shadow-lg">
+                                <a href="topics-detail.html" target="_blank">
+                                    <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">MOSELEY GROUP 1</h5>
+
+                                            <p class="mb-0">CLICK HERE!</p>
+                                        </div>
+
+                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                    </div>
+
+                                    <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block custom-block-overlay">
+                                <div class="d-flex flex-column h-100">
+                                    <img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
+
+                                    <div class="custom-block-overlay-text d-flex">
+                                        <div>
+                                            <h5 class="text-white mb-2">COLLABORATION</h5>
+
+                                            <p class="text-white">CHECK THIS OUT!</p>
+
+                                            <a href="https://jomiruu.art/#section-contact" target="_blank" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                        </div>
+
+                                        <span class="badge bg-finance rounded-pill ms-auto">25</span>
+                                    </div>
+
+                                    <div class="social-share d-flex">
+                                        <p class="text-white me-4">Share:</p>
+
+                                        <ul class="social-icon">
+                                            <li class="social-icon-item">
+                                                <a href="https://x.com/Jomiruuu" target="_blank" class="social-icon-link bi-twitter"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="https://www.facebook.com/Jomiruu" target="_blank" class="social-icon-link bi-facebook"></a>                               
+                                            </li>
+                                            <li class="social-icon-item">
+                                                <a href="https://jomiruu.art/" target="_blank" class="social-icon-link bi-globe"></a> 
+                                            </li>
+                                    </div>
+
+                                    <div class="section-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="explore-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="col-12 text-center">
+                        <h2 class="mb-4">Make it yours!</h2>
+                    </div>
+                </div>
+            
+                <div class="container-fluid" style="align-items: center;">
+                    <div class="row">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Flash Card</button>
+                            </li>
+            
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Work plan</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="https://quizlet.com/965628537/autosaved" target="_blank">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Quizlet.com</h5>
+                                                            <p class="mb-0">Ace your studies with Quizlet—create flashcards, quizzes, and study games for any subject.</p>
+                                                        </div>
+                                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                                    </div>
+                                                    <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+            
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="https://edpuzzle.com/" target="_blank">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Edpuzzle.com</h5>
+                                                            <p class="mb-0">Make learning interactive with Edpuzzle—add questions and notes to videos.</p>
+                                                        </div>
+                                                        <span class="badge bg-design rounded-pill ms-auto">75</span>
+                                                    </div>
+                                                    <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+            
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="https://gizmo.ai/streak" target="_blank">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Gizmo.ai</h5>
+                                                            <p class="mb-0">Explore and learn with Gizmos—interactive simulations for science and math concepts.</p>
+                                                        </div>
+                                                        <span class="badge bg-design rounded-pill ms-auto">100</span>
+                                                    </div>
+                                                    <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <!-- Marketing Tab Content Added Below -->
+                                <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="https://calendar.google.com/calendar/u/0/r" target="_blank">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Calendar.google.com</h5>
+                                                            <p class="mb-0">Organize your schedule with Google Calendar—events, tasks, and reminders, all in one place.</p>
+                                                        </div>
+                                                        <span class="badge bg-advertising rounded-pill ms-auto">30</span>
+                                                    </div>
+                                                    <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+            
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="https://www.notion.so/" target="_blank">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Notion.so</h5>
+                                                            <p class="mb-0">Build your ideal workspace! Notion lets you organize notes, tasks, and projects—all in one place.</p>
+                                                        </div>
+                                                        <span class="badge bg-advertising rounded-pill ms-auto">65</span>
+                                                    </div>
+                                                    <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="https://evernote.com/" target="_blank">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Evernote.com</h5>
+                                                            <p class="mb-0">Create your workspace! Capture and organize notes, tasks, and ideas with Evernote.</p>
+                                                        </div>
+                                                        <span class="badge bg-advertising rounded-pill ms-auto">65</span>
+                                                    </div>
+                                                    <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+            
+            
+
+
+            <section class="timeline-section section-padding" id="section_3">
+                <div class="section-overlay"></div>
+            
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="text-white mb-4">Objective of the Study</h1>
+                        </div>
+
+                        <div class="col-lg-10 col-12 mx-auto" >
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">INTRODUCTION</h4>
+
+                                        <p class="text-white" style="text-align: justify;">Student motivation significantly impacts educational outcomes, with many students disengaged and
+                                            struggling to complete assignments. Research from Carnegie Mellon University suggests that ineffective reward structures contribute to this issue.
+                                            This project seeks to bridge the motivational gap by integrating technology—using interactive apps and gamification techniques like points and
+                                            badges—to create an engaging learning environment. Real-time feedback and peer collaboration aim to increase student connection and investment in their learning, 
+                                            boosting both motivation and academic performance while fostering a culture of achievement crucial for future success.
+                                        </p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-search"></i>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <h4 class="text-white mb-3">PURPOSE </h4>
+
+                                        <p class="text-white" style="text-align: justify;" >According to Noeme Rone and affiliates, students often lose motivation due to unclear lessons, lack
+                                            of confidence, and dissatisfaction with material, leading to disengagement. To address this, we developed QuMo—an online platform designed to combat 
+                                            lapses in focus and enhance organization and motivation. QuMo offers study guides, practice quizzes, and scheduling tools to boost performance and engagement. 
+                                            By fostering consistent study habits, reducing stress, and using a reward system to build confidence, QuMo aims to transform students' academic journeys, promoting
+                                            a more engaged, motivated generation of learners.
+                                        </p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-bookmark"></i>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">DESCRIPTION &amp; Enjoy</h4>
+
+                                        <p class="text-white" style="text-align: justify;">QuMo is a website designed to motivate academically struggling students, starting with market
+                                            research to address their needs. Development will prioritize features like quiz generation, a badge  system, and personalized scheduling, alongside content creation,
+                                            including quizzes and motivational messages. The team includes a Leader for coordination, Software Developers for technical tasks, and Designers for a user-friendly interface.
+                                            This structured approach targets a 3-5 week timeline for building, testing, and launching the platform, ultimately delivering a valuable resource to enhance student motivation
+                                             and engagement.
+                                        </p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-book"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="faq-section section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <h2 class="mb-4">Frequently Asked Questions</h2>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-5 col-12">
+                            <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                        </div>
+
+                        <div class="col-lg-6 col-12 m-auto">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            What is QuMo?
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            QuMo is an interactive study companion designed to help students boost their <strong>academic motivation. </strong> It integrates quizzes, learning tools,
+                                            and gamification features to create an engaging and supportive learning environment.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Is QuMo suitable for all students?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Yes, QuMo is designed to help students of all levels and ages who may need <strong>additional motivation</strong> to stay on track with their schoolwork. 
+                                            Whether you’re a high school student or in college, QuMo can provide an engaging way to boost your academic performance.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        How do I get started with QuMo?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Getting started with QuMo is simple! Sign up for an account, explore the <code>interactive quizzes and learning tools,</code>and start earning points and badges as you engage with the content.
+                                             You'll also be able to track your progress and connect with peers right away.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+               
+
+                  
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact-section section-padding section-bg" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-5">Get in touch</h2>
+                        </div>
+
+                        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d855.046252069651!2d125.54233228847563!3d8.944474740560858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3301c132fa3dc89f%3A0x2be82d7bb44bdb1d!2sAgusan%20National%20High%20School-Senior%20Highschool!5e1!3m2!1sen!2sph!4v1731022958842!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h4 class="mb-3">Qumo Center</h4>
+
+                            <p>Agusan National High School-Senior Highschool,</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: +63 9943019011" class="site-footer-link">
+                                    +63 9943019011
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:qumobuddy@gmail.com" class="site-footer-link">
+                                    qumobuddy@gmail.com
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mx-auto">
+                            <h4 class="mb-3">Qumo Center</h4>
+
+                            <p>WGVR+RXF, T. Sanchez St, Butuan City, Agusan Del Norte</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: +63 9943019011" class="site-footer-link">
+                                    +63 9943019011
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:qumobuddy@gmail.com" class="site-footer-link">
+                                    qumobuddy@gmail.com
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+<footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="bi-back"></i>
+                            <span>QUMO</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#top" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_2" class="site-footer-link">Features</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_4" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_5" class="site-footer-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Information</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: +63 9943019011" class="site-footer-link">
+                                +63 9943019011
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:qumobuddy@gmail.com" class="site-footer-link">
+                                qumobuddy@gmail.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Thai</button></li>
+
+                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div>
+
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Qumo Center. All rights reserved.
+                        <br><br>Design: <a rel="nofollow" href="https://jomiruu.art/" target="_blank">jomiruu.art</a> Distribution <a href="https://themewagon.com">ThemeWagon</a></p>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>
